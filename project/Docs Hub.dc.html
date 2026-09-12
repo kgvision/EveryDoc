@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/organic-f088a659-849f-40cf-a801-c9a379901304/styles.css">
+<script src="_ds/organic-f088a659-849f-40cf-a801-c9a379901304/_ds_bundle.js"></script>
+<style>
+body{margin:0;background:#e6dbc6;font-family:var(--font-body)}
+.dv-turn{padding:40px 44px 32px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#201e1d;color:#f5ead8;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 var(--font-body);color:#201e1d}
+.dv-opts{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:10px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(32,30,29,.1);color:#201e1d;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 var(--font-body);color:rgba(32,30,29,.6)}
+.dv-opt:target .dv-oid{background:#c67139;color:#fff}
+.dv-next{margin:24px 0 0;font:12px/1.5 var(--font-body);color:rgba(32,30,29,.55)}
+.hub-scroll::-webkit-scrollbar{width:8px;height:8px}
+.hub-scroll::-webkit-scrollbar-thumb{background:rgba(32,30,29,.18);border-radius:999px}
+.hub-scroll::-webkit-scrollbar-track{background:transparent}
+@keyframes hub-pop{from{transform:scale(.7)}to{transform:scale(1)}}
+</style></helmet>
+
+<section class="dv-turn" id="t3">
+<div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">Blue &amp; green grounds — same ramp structure, hue rotated cool; the warm accent stays as the second voice</span></div>
+<div class="dv-opts">
+  <sc-for list="{{ schemes3 }}" as="s" hint-placeholder-count="5">
+    <div class="dv-opt" id="{{ s.id }}">
+      <div class="dv-olabel"><a href="{{ s.href }}" style="{{ s.badgeStyle }}">{{ s.id }}</a>{{ s.name }} — {{ s.note }}</div>
+      <div style="{{ s.vars }}">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div style="width:28px;height:28px;flex:none;border-radius:999px;background:var(--color-accent);display:grid;place-items:center;color:var(--color-bg);font-family:var(--font-heading);font-size:14px;line-height:1">e</div>
+          <div style="font-family:var(--font-heading);font-size:17px">Everdoc</div>
+        </div>
+        <div style="display:flex;gap:6px">
+          <sc-for list="{{ s.pills }}" as="p" hint-placeholder-count="3">
+            <div style="{{ p.style }}">{{ p.label }}</div>
+          </sc-for>
+        </div>
+        <div style="background:var(--color-surface);border-radius:26px;overflow:hidden">
+          <div style="position:relative;height:104px;padding:14px;display:flex;align-items:flex-end;overflow:hidden;background:var(--poster-1)">
+            <div style="position:absolute;width:104px;height:104px;border-radius:999px;background:color-mix(in srgb, var(--color-bg) 55%, transparent);right:-28px;bottom:-38px"></div>
+            <div style="position:relative;font-family:var(--font-heading);font-size:17px;line-height:1.1;color:var(--color-text)">Apollo 11</div>
+          </div>
+          <div style="padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px">
+            <div style="font-size:10.5px;color:color-mix(in srgb, var(--color-text) 62%, transparent)">2019  ·  93m</div>
+            <div style="display:flex;gap:6px">
+              <div style="padding:4px 10px;border-radius:999px;background:var(--color-bg);border:1px solid var(--color-divider);font-size:10.5px;font-weight:600;color:var(--color-text)">Max</div>
+              <div style="padding:4px 10px;border-radius:999px;background:var(--color-bg);border:1px solid var(--color-divider);font-size:10.5px;font-weight:600;color:var(--color-text)">Hulu</div>
+              <div style="padding:4px 10px;border-radius:999px;background:var(--color-accent-2);border:1px solid transparent;font-size:10.5px;font-weight:700;color:var(--color-bg)">Free</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:7px">
+          <sc-for list="{{ s.swatches }}" as="w" hint-placeholder-count="5">
+            <div style="{{ w.dotStyle }}"></div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+</div>
+<p class="dv-next">Try next: "apply <a class="dv-oid" href="#3e">3e</a> to the whole page" · "<a class="dv-oid" href="#3a">3a</a> with a darker sidebar" · "one more blue, lighter"</p>
+</section>
+
+<section class="dv-turn" id="t2">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Palette options — all drawn from the system's own ramps. Pick one and I'll apply it to the page (or flip it yourself in Tweaks).</span></div>
+<div class="dv-opts">
+  <sc-for list="{{ schemes }}" as="s" hint-placeholder-count="5">
+    <div class="dv-opt" id="{{ s.id }}">
+      <div class="dv-olabel"><a href="{{ s.href }}" style="{{ s.badgeStyle }}">{{ s.id }}</a>{{ s.name }} — {{ s.note }}</div>
+      <div style="{{ s.vars }}">
+        <div style="display:flex;align-items:center;gap:9px">
+          <div style="width:28px;height:28px;flex:none;border-radius:999px;background:var(--color-accent);display:grid;place-items:center;color:var(--color-bg);font-family:var(--font-heading);font-size:14px;line-height:1">e</div>
+          <div style="font-family:var(--font-heading);font-size:17px">Everdoc</div>
+        </div>
+        <div style="display:flex;gap:6px">
+          <sc-for list="{{ s.pills }}" as="p" hint-placeholder-count="3">
+            <div style="{{ p.style }}">{{ p.label }}</div>
+          </sc-for>
+        </div>
+        <div style="background:var(--color-surface);border-radius:26px;overflow:hidden">
+          <div style="position:relative;height:104px;padding:14px;display:flex;align-items:flex-end;overflow:hidden;background:var(--poster-1)">
+            <div style="position:absolute;width:104px;height:104px;border-radius:999px;background:color-mix(in srgb, var(--color-bg) 55%, transparent);right:-28px;bottom:-38px"></div>
+            <div style="position:relative;font-family:var(--font-heading);font-size:17px;line-height:1.1;color:var(--color-text)">Apollo 11</div>
+          </div>
+          <div style="padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px">
+            <div style="font-size:10.5px;color:color-mix(in srgb, var(--color-text) 62%, transparent)">2019  ·  93m</div>
+            <div style="display:flex;gap:6px">
+              <div style="padding:4px 10px;border-radius:999px;background:var(--color-bg);border:1px solid var(--color-divider);font-size:10.5px;font-weight:600;color:var(--color-text)">Max</div>
+              <div style="padding:4px 10px;border-radius:999px;background:var(--color-bg);border:1px solid var(--color-divider);font-size:10.5px;font-weight:600;color:var(--color-text)">Hulu</div>
+              <div style="padding:4px 10px;border-radius:999px;background:var(--color-accent-2);border:1px solid transparent;font-size:10.5px;font-weight:700;color:var(--color-bg)">Free</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:7px">
+          <sc-for list="{{ s.swatches }}" as="w" hint-placeholder-count="5">
+            <div style="{{ w.dotStyle }}"></div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+</div>
+<p class="dv-next">Try next: "apply <a class="dv-oid" href="#2e">2e</a> to the whole page" · "<a class="dv-oid" href="#2b">2b</a> but keep the terracotta buttons" · "show <a class="dv-oid" href="#2e">2e</a> on mobile only"</p>
+</section>
+
+<section class="dv-turn" id="t1" style="{{ paletteVars }}">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Everdoc — sidebar hub, desktop + mobile</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Desktop — persistent category rail, live search, provider chips</div>
+<x-import component-from-global-scope="ChromeWindow" from="./browser-window.jsx" width="{{ 1280 }}" height="{{ 840 }}" url="everdoc.tv/browse" hint-size="1280px,840px">
+  <div style="display:flex;height:100%;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);overflow:hidden">
+
+    <aside style="width:236px;flex:none;display:flex;flex-direction:column;gap:22px;padding:24px 18px;background:var(--color-surface);overflow:hidden">
+      <div style="display:flex;align-items:center;gap:10px;padding-left:6px">
+        <div style="width:34px;height:34px;flex:none;border-radius:999px;background:var(--color-accent);display:grid;place-items:center;color:var(--color-bg);font-family:var(--font-heading);font-size:17px;line-height:1">e</div>
+        <div style="font-family:var(--font-heading);font-size:20px;letter-spacing:-.02em">Everdoc</div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:3px">
+        <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:0 8px 7px">Browse</div>
+        <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+          <button type="button" onClick="{{ n.select }}" style="{{ n.style }}" style-hover="background:color-mix(in srgb, var(--color-text) 8%, transparent)">
+            <span style="{{ n.dotStyle }}"></span>
+            <span style="flex:1;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ n.name }}</span>
+            <span style="font-size:11px;color:var(--muted)">{{ n.count }}</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="margin-top:auto;display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:26px;background:var(--panel)">
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="width:26px;height:26px;border-radius:999px;background:var(--color-accent);display:grid;place-items:center;color:var(--color-bg);font-size:13px;line-height:1">★</div>
+          <div style="font-family:var(--font-heading);font-size:15px">My list</div>
+        </div>
+        <div style="font-size:12px;line-height:1.4;color:var(--panel-ink);opacity:.8">{{ savedLine }}</div>
+      </div>
+    </aside>
+
+    <main class="hub-scroll" style="flex:1;min-width:0;overflow-y:auto;padding:0 0 40px">
+      <div style="position:sticky;top:0;z-index:3;background:var(--color-bg);padding:22px 32px 14px">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="position:relative;flex:1;max-width:420px">
+            <input class="input" value="{{ q }}" onChange="{{ onSearch }}" placeholder="Search 27 documentaries…" style="padding-left:40px;min-height:44px;background:var(--color-surface);font-size:14px">
+            <span style="position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:14px;opacity:.5">⌕</span>
+          </div>
+          <div style="display:flex;gap:8px;margin-left:auto;align-items:center">
+            <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+              <button type="button" onClick="{{ f.select }}" style="{{ f.style }}" style-hover="border-color:var(--color-accent)">{{ f.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:0 32px">
+        <div style="display:flex;align-items:stretch;gap:0;border-radius:34px;background:var(--panel);overflow:hidden;margin-bottom:30px">
+          <div style="flex:1;min-width:0;padding:30px 30px 28px">
+            <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--panel-ink);opacity:.72;margin-bottom:10px">Everywhere, in one place</div>
+            <h2 style="font-size:34px;margin:0 0 10px;max-width:15ch;text-wrap:pretty">Every documentary. Every service. One page.</h2>
+            <p style="font-size:14px;max-width:46ch;color:var(--panel-ink);opacity:.85;margin:0 0 18px;text-wrap:pretty">We don't stream anything. We tell you exactly where it lives — then take you straight to the sign-in.</p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <sc-for list="{{ allProviders }}" as="p" hint-placeholder-count="10">
+                <a href="{{ p.url }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:6px 13px;border-radius:999px;background:var(--color-bg);border:1px solid var(--color-divider);font-size:11.5px;font-weight:600;color:var(--color-text);text-decoration:none" style-hover="background:var(--color-accent);color:var(--color-bg);border-color:var(--color-accent)">{{ p.name }}</a>
+              </sc-for>
+            </div>
+          </div>
+          <div style="width:230px;flex:none;position:relative;overflow:hidden">
+            <div style="position:absolute;width:190px;height:190px;border-radius:999px;background:var(--poster-2);top:-38px;right:-46px"></div>
+            <div style="position:absolute;width:118px;height:118px;border-radius:999px;background:var(--poster-1);bottom:18px;right:56px"></div>
+            <div style="position:absolute;width:62px;height:62px;border-radius:999px;background:var(--color-bg);top:92px;right:120px"></div>
+          </div>
+        </div>
+
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="3">
+          <div style="margin-bottom:38px">
+            <div style="display:flex;align-items:center;gap:11px;margin-bottom:16px">
+              <span style="{{ c.dotStyle }}"></span>
+              <h3 style="font-size:23px;margin:0">{{ c.name }}</h3>
+              <span style="font-size:11.5px;color:var(--muted)">{{ c.countLabel }}</span>
+              <a href="#1a" style="margin-left:auto;font-size:12.5px;font-weight:600;color:var(--color-accent);text-decoration:none" style-hover="opacity:.75">See all →</a>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px">
+              <sc-for list="{{ c.titles }}" as="d" hint-placeholder-count="3">
+                <article style="display:flex;flex-direction:column;background:var(--color-surface);border-radius:30px;overflow:hidden;box-shadow:var(--shadow-sm)" style-hover="box-shadow:var(--shadow-md)">
+                  <div style="{{ d.posterStyle }}">
+                    <div style="{{ d.blobStyle }}"></div>
+                    <div style="{{ d.blob2Style }}"></div>
+                    <div style="position:relative;font-family:var(--font-heading);font-size:20px;line-height:1.08;letter-spacing:-.02em;text-wrap:balance">{{ d.title }}</div>
+                    <div style="position:relative;margin-top:auto;display:flex;align-items:center;gap:7px">
+                      <sc-if value="{{ d.free }}" hint-placeholder-val="{{ true }}">
+                        <span style="font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--color-bg);color:var(--color-text)">Free with ads</span>
+                      </sc-if>
+                    </div>
+                    <button type="button" onClick="{{ d.toggleSave }}" style="{{ d.saveStyle }}" style-hover="transform:scale(1.08)">{{ d.saveGlyph }}</button>
+                  </div>
+                  <div style="padding:15px 17px 17px;display:flex;flex-direction:column;gap:9px;flex:1">
+                    <div style="font-size:11px;letter-spacing:.04em;color:var(--muted)">{{ d.meta }}</div>
+                    <p style="margin:0;font-size:12.5px;line-height:1.45;color:color-mix(in srgb, var(--color-text) 78%, transparent);flex:1;text-wrap:pretty">{{ d.syn }}</p>
+                    <div style="border-top:1px solid var(--color-divider);padding-top:11px">
+                      <div style="font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Watch on</div>
+                      <div style="display:flex;flex-wrap:wrap;gap:6px">
+                        <sc-for list="{{ d.provs }}" as="p" hint-placeholder-count="2">
+                          <a href="{{ p.url }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:999px;background:var(--color-bg);border:1px solid var(--color-divider);font-size:11.5px;font-weight:600;color:var(--color-text);text-decoration:none" style-hover="background:var(--color-accent);border-color:var(--color-accent);color:var(--color-bg)">
+                            <span style="{{ p.dotStyle }}"></span>{{ p.name }}
+                          </a>
+                        </sc-for>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+
+        <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:60px 0;text-align:center">
+            <div style="width:76px;height:76px;border-radius:999px;background:var(--panel);margin:0 auto 16px"></div>
+            <h4 style="margin:0 0 6px">Nothing here yet</h4>
+            <p style="font-size:13px;color:var(--muted)">Try a different search or clear the filter.</p>
+          </div>
+        </sc-if>
+      </div>
+    </main>
+  </div>
+</x-import>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Mobile — the rail becomes a chip scroller, cards go full width</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" title="Browse" hint-size="393px,852px">
+  <div class="hub-scroll" style="height:100%;overflow-y:auto;background:var(--color-bg);color:var(--color-text);font-family:var(--font-body)">
+    <div style="padding:14px 18px 10px">
+      <div style="display:flex;align-items:center;gap:9px;margin-bottom:14px">
+        <div style="width:30px;height:30px;flex:none;border-radius:999px;background:var(--color-accent);display:grid;place-items:center;color:var(--color-bg);font-family:var(--font-heading);font-size:15px;line-height:1">e</div>
+        <div style="font-family:var(--font-heading);font-size:19px">Everdoc</div>
+        <button type="button" style="margin-left:auto;width:36px;height:36px;border:0;border-radius:999px;background:var(--color-surface);color:var(--color-text);font-size:15px;cursor:pointer">★</button>
+      </div>
+      <div style="position:relative">
+        <input class="input" value="{{ q }}" onChange="{{ onSearch }}" placeholder="Search documentaries…" style="padding-left:38px;min-height:44px;background:var(--color-surface);font-size:14px">
+        <span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:14px;opacity:.5">⌕</span>
+      </div>
+    </div>
+
+    <div class="hub-scroll" style="display:flex;gap:8px;overflow-x:auto;padding:6px 18px 14px;scrollbar-width:none">
+      <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="10">
+        <button type="button" onClick="{{ n.select }}" style="{{ n.chipStyle }}">{{ n.name }}</button>
+      </sc-for>
+    </div>
+
+    <div style="padding:0 18px 30px;display:flex;flex-direction:column;gap:26px">
+      <sc-for list="{{ cats }}" as="c" hint-placeholder-count="2">
+        <div>
+          <div style="display:flex;align-items:center;gap:9px;margin-bottom:12px">
+            <span style="{{ c.dotStyle }}"></span>
+            <h4 style="margin:0;font-size:18px">{{ c.name }}</h4>
+            <span style="font-size:11px;color:var(--muted);margin-left:auto">{{ c.countLabel }}</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <sc-for list="{{ c.titles }}" as="d" hint-placeholder-count="3">
+              <article style="display:flex;gap:13px;padding:13px;background:var(--color-surface);border-radius:26px;box-shadow:var(--shadow-sm)">
+                <div style="{{ d.miniPosterStyle }}">
+                  <div style="{{ d.miniBlobStyle }}"></div>
+                  <span style="position:relative;font-family:var(--font-heading);font-size:12px;line-height:1.1">{{ d.initials }}</span>
+                </div>
+                <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+                  <div style="display:flex;align-items:flex-start;gap:8px">
+                    <div style="font-family:var(--font-heading);font-size:15px;line-height:1.15;flex:1;text-wrap:pretty">{{ d.title }}</div>
+                    <button type="button" onClick="{{ d.toggleSave }}" style="{{ d.miniSaveStyle }}">{{ d.saveGlyph }}</button>
+                  </div>
+                  <div style="font-size:10.5px;color:var(--muted)">{{ d.meta }}</div>
+                  <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:2px">
+                    <sc-for list="{{ d.provs }}" as="p" hint-placeholder-count="2">
+                      <a href="{{ p.url }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:999px;background:var(--color-bg);border:1px solid var(--color-divider);font-size:10.5px;font-weight:600;color:var(--color-text);text-decoration:none">
+                        <span style="{{ p.dotStyle }}"></span>{{ p.name }}
+                      </a>
+                    </sc-for>
+                    <sc-if value="{{ d.free }}" hint-placeholder-val="{{ false }}">
+                      <span style="display:inline-flex;align-items:center;padding:4px 9px;border-radius:999px;background:var(--color-accent-2);color:var(--color-bg);font-size:10px;font-weight:700;letter-spacing:.04em">FREE</span>
+                    </sc-if>
+                  </div>
+                </div>
+              </article>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</x-import>
+</div>
+
+</div>
+<p class="dv-next">Try next: "make the desktop cards poster-forward like a streaming grid" · "add a title detail page when a card is clicked" · "show the sidebar collapsed state"</p>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Midnight&quot;,&quot;Forest night&quot;,&quot;Harbour&quot;,&quot;Sea glass&quot;,&quot;Moss&quot;,&quot;Cream&quot;,&quot;Sage&quot;,&quot;Clay&quot;,&quot;Stone&quot;,&quot;Night&quot;],&quot;default&quot;:&quot;Midnight&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;}}">
+const P = {
+  "Netflix": ["https://www.netflix.com/login", "#c0533a"],
+  "Hulu": ["https://auth.hulu.com/web/login", "#7a8a5e"],
+  "Disney+": ["https://www.disneyplus.com/login", "#56633f"],
+  "Max": ["https://auth.max.com/login", "#8c491a"],
+  "Prime Video": ["https://www.primevideo.com/ap/signin", "#728157"],
+  "Apple TV+": ["https://tv.apple.com/login", "#645c50"],
+  "Peacock": ["https://www.peacocktv.com/signin", "#b2622d"],
+  "Paramount+": ["https://www.paramountplus.com/account/signin/", "#8fa073"],
+  "PBS": ["https://account.pbs.org/accounts/login", "#474238"],
+  "YouTube": ["https://accounts.google.com/ServiceLogin?service=youtube", "#d67f48"]
+};
+
+const DATA = [
+  { name: "Nature & Wildlife", dot: "var(--color-accent-2-500)", titles: [
+    { t: "Our Planet", y: 2019, rt: "8 × 50m", free: false, provs: ["Netflix"], syn: "Ocean-to-ice survey of habitats in flux, narrated with unusual candour about what's being lost." },
+    { t: "My Octopus Teacher", y: 2020, rt: "85m", free: false, provs: ["Netflix"], syn: "A filmmaker returns daily to a kelp forest and builds a friendship with one curious cephalopod." },
+    { t: "The Year Earth Changed", y: 2021, rt: "48m", free: false, provs: ["Apple TV+"], syn: "What wildlife did while the world stayed indoors — quieter cities, bolder animals." } ] },
+  { name: "True Crime", dot: "var(--color-accent-700)", titles: [
+    { t: "Making a Murderer", y: 2015, rt: "10 × 60m", free: false, provs: ["Netflix"], syn: "A decade inside one Wisconsin case, and the machinery of a conviction." },
+    { t: "The Keepers", y: 2017, rt: "7 × 55m", free: false, provs: ["Netflix"], syn: "Former students turn investigators to reopen the unsolved death of their teacher." },
+    { t: "The Jinx", y: 2015, rt: "6 × 45m", free: false, provs: ["Max"], syn: "An heir sits for interviews he probably shouldn't have agreed to." } ] },
+  { name: "History", dot: "var(--color-neutral-700)", titles: [
+    { t: "Apollo 11", y: 2019, rt: "93m", free: false, provs: ["Max", "Hulu"], syn: "Restored 70mm footage, no narration — the mission as it was actually witnessed." },
+    { t: "13th", y: 2016, rt: "100m", free: true, provs: ["Netflix", "YouTube"], syn: "Traces a line from abolition to mass incarceration through one constitutional clause." },
+    { t: "The Vietnam War", y: 2017, rt: "10 × 90m", free: true, provs: ["PBS"], syn: "Ten parts, many sides, assembled from archives and the people who were there." } ] },
+  { name: "Science & Space", dot: "var(--color-accent-500)", titles: [
+    { t: "Cosmos: Possible Worlds", y: 2020, rt: "13 × 45m", free: false, provs: ["Disney+", "Hulu"], syn: "A tour of deep time and deeper space, built on what we might still become." },
+    { t: "Fantastic Fungi", y: 2019, rt: "81m", free: false, provs: ["Netflix"], syn: "Time-lapse mycology arguing that the network under the forest runs the place." },
+    { t: "Particle Fever", y: 2013, rt: "99m", free: true, provs: ["YouTube"], syn: "Physicists wait years for one collider result, and then get it." } ] },
+  { name: "Music & Art", dot: "var(--color-accent-2-700)", titles: [
+    { t: "Summer of Soul", y: 2021, rt: "118m", free: false, provs: ["Hulu", "Disney+"], syn: "A Harlem festival lost in a basement for fifty years, finally screened." },
+    { t: "The Beatles: Get Back", y: 2021, rt: "3 × 150m", free: false, provs: ["Disney+"], syn: "Sixty hours of rehearsal tape cut into a fly-on-the-wall record of a band working." },
+    { t: "20 Feet from Stardom", y: 2013, rt: "91m", free: false, provs: ["Max", "Prime Video"], syn: "The backing singers behind decades of hits step out front." } ] },
+  { name: "Sports", dot: "var(--color-accent-600)", titles: [
+    { t: "Free Solo", y: 2018, rt: "100m", free: false, provs: ["Disney+", "Hulu"], syn: "El Capitan without a rope, and the people who had to film it." },
+    { t: "The Last Dance", y: 2020, rt: "10 × 50m", free: false, provs: ["Netflix", "Disney+"], syn: "One final championship season, told with the archive nobody had seen." },
+    { t: "Icarus", y: 2017, rt: "121m", free: false, provs: ["Netflix"], syn: "An amateur doping experiment collides with a state-run programme." } ] },
+  { name: "Politics & Society", dot: "var(--color-neutral-600)", titles: [
+    { t: "Knock Down the House", y: 2019, rt: "87m", free: false, provs: ["Netflix"], syn: "Four first-time candidates run primary campaigns nobody expected them to win." },
+    { t: "Won't You Be My Neighbor?", y: 2018, rt: "94m", free: true, provs: ["Max", "PBS"], syn: "A portrait of children's television as a radical act of kindness." },
+    { t: "The Social Dilemma", y: 2020, rt: "94m", free: false, provs: ["Netflix"], syn: "The people who built the feeds explain what they think they built." } ] },
+  { name: "Food & Travel", dot: "var(--color-accent-2-600)", titles: [
+    { t: "Chef's Table", y: 2015, rt: "6 × 50m", free: false, provs: ["Netflix"], syn: "One kitchen per episode, shot like a feature and paced like a meal." },
+    { t: "Jiro Dreams of Sushi", y: 2011, rt: "81m", free: false, provs: ["Max", "Prime Video"], syn: "A Tokyo counter, ten seats, and sixty years of refining the same motions." },
+    { t: "Somebody Feed Phil", y: 2018, rt: "6 × 50m", free: false, provs: ["Netflix"], syn: "A very enthusiastic host eats his way through cities and makes friends." } ] },
+  { name: "Biography", dot: "var(--color-accent-800)", titles: [
+    { t: "RBG", y: 2018, rt: "98m", free: false, provs: ["Hulu", "Prime Video"], syn: "A legal career assembled brief by brief into an unlikely late-life icon." },
+    { t: "Amy", y: 2015, rt: "128m", free: false, provs: ["Prime Video", "Paramount+"], syn: "Home footage and voice notes retell a talent the tabloids had already flattened." },
+    { t: "They Call Me Magic", y: 2022, rt: "4 × 50m", free: false, provs: ["Apple TV+"], syn: "Four parts on a basketball career and the announcement that reframed it." } ] }
+];
+
+const POSTER_BG = ["var(--poster-1)", "var(--poster-2)", "var(--poster-3)", "var(--poster-4)"];
+const FILTERS = ["All", "Free with ads", "Series", "Under 100m"];
+
+// Palette options — every value is a step from the design system's own ramps.
+const SCHEMES = [
+  { id: "2a", key: "Cream", name: "Cream & terracotta", note: "The system as shipped",
+    v: { bg: "#f5ead8", surface: "#ebddc5", text: "#201e1d", accent: "#c67139", accent2: "#7a8a5e",
+         posters: ["#ffc6a5", "#ccdbb2", "#dcd3c4", "#ffe1d0"] } },
+  { id: "2b", key: "Sage", name: "Sage ground", note: "Second accent takes the page",
+    v: { bg: "#f0fae1", surface: "#e1eecc", text: "#272e1b", accent: "#b2622d", accent2: "#728157",
+         posters: ["#ccdbb2", "#ffc6a5", "#aebf92", "#e1eecc"] } },
+  { id: "2c", key: "Clay", name: "Warm clay", note: "Accent ramp as the ground",
+    v: { bg: "#ffe1d0", surface: "#fff2eb", text: "#402310", accent: "#8c491a", accent2: "#728157",
+         posters: ["#f6a06b", "#ccdbb2", "#dcd3c4", "#ffc6a5"] } },
+  { id: "2d", key: "Stone", name: "Warm stone", note: "Quieter ground, accent pops harder",
+    v: { bg: "#eee7db", surface: "#dcd3c4", text: "#2e2b25", accent: "#c67139", accent2: "#728157",
+         posters: ["#ffc6a5", "#ccdbb2", "#c0b6a5", "#f6a06b"] } },
+  { id: "2e", key: "Night", name: "Late night", note: "Dark, the way streaming apps sit",
+    v: { bg: "#2e2b25", surface: "#474238", text: "#f9f4ed", accent: "#f6a06b", accent2: "#aebf92",
+         posters: ["#8c491a", "#56633f", "#645c50", "#b2622d"] } },
+
+  // Cool family — same OKLCH lightness steps, hue rotated to blue/green.
+  { id: "3a", key: "Moss", name: "Moss", note: "Green ground, terracotta keeps the warmth", g: 3,
+    v: { bg: "#eef4e5", surface: "#dbe7c9", text: "#1e2a1a", accent: "#4b7a52", accent2: "#b2622d",
+         posters: ["#b9d6a8", "#ffc6a5", "#cddbc0", "#8fb682"] } },
+  { id: "3b", key: "Sea glass", name: "Sea glass", note: "Soft teal, sage as the second voice", g: 3,
+    v: { bg: "#e9f2f1", surface: "#d3e5e3", text: "#152826", accent: "#2f7a76", accent2: "#8fa073",
+         posters: ["#a8d3ce", "#ccdbb2", "#c3d6d4", "#7fb8b2"] } },
+  { id: "3c", key: "Harbour", name: "Harbour", note: "Blue ground, terracotta accent", g: 3,
+    v: { bg: "#eaeff7", surface: "#d7dfee", text: "#161f30", accent: "#3a5f96", accent2: "#c67139",
+         posters: ["#aec4e5", "#ffc6a5", "#c4cfe3", "#8aa6d2"] } },
+  { id: "3d", key: "Forest night", name: "Forest night", note: "Dark green, apricot accent", g: 3,
+    v: { bg: "#1d2a25", surface: "#2e3d37", text: "#eef5ea", accent: "#7cc3a0", accent2: "#f6a06b",
+         posters: ["#2f5f47", "#6b4b26", "#3f4f47", "#4e7a5d"] } },
+  { id: "3e", key: "Midnight", name: "Midnight blue", note: "Dark blue, the coolest of the set", g: 3,
+    v: { bg: "#161f2e", surface: "#253148", text: "#edf2f9", accent: "#7aaee0", accent2: "#aebf92",
+         posters: ["#2d4266", "#3f5238", "#3a4458", "#4b6a99"] } }
+];
+
+function vars(v) {
+  return "--color-bg:" + v.bg + ";--color-surface:" + v.surface + ";--color-text:" + v.text +
+    ";--color-accent:" + v.accent + ";--color-accent-2:" + v.accent2 +
+    ";--color-divider:color-mix(in srgb," + v.text + " 16%,transparent)" +
+    ";--panel:color-mix(in srgb," + v.accent2 + " 26%," + v.surface + ")" +
+    ";--panel-ink:" + v.text +
+    ";--muted:color-mix(in srgb," + v.text + " 62%,transparent)" +
+    v.posters.map((p, i) => ";--poster-" + (i + 1) + ":" + p).join("") +
+    ";background:" + v.bg + ";color:" + v.text;
+}
+
+class Component extends DCLogic {
+  state = { cat: "All", filter: "All", q: "", saved: {} };
+
+  matches(d) {
+    const { filter, q } = this.state;
+    if (q.trim() && !(d.t + " " + d.syn).toLowerCase().includes(q.trim().toLowerCase())) return false;
+    if (filter === "Free with ads") return d.free;
+    if (filter === "Series") return d.rt.includes("×");
+    if (filter === "Under 100m") return !d.rt.includes("×") && parseInt(d.rt) < 100;
+    return true;
+  }
+
+  card(d, ci) {
+    const key = d.t;
+    const on = !!this.state.saved[key];
+    const bg = POSTER_BG[(ci + d.y) % POSTER_BG.length];
+    return {
+      title: d.t, syn: d.syn, free: d.free,
+      meta: d.y + "  ·  " + d.rt,
+      initials: d.t.split(" ").filter(w => w.length > 2).slice(0, 2).map(w => w[0]).join(""),
+      provs: d.provs.map(n => ({
+        name: n, url: P[n][0],
+        dotStyle: "width:7px;height:7px;border-radius:999px;flex:none;background:color-mix(in srgb," + P[n][1] + " 62%, var(--color-text))"
+      })),
+      posterStyle: "position:relative;height:150px;padding:18px;display:flex;flex-direction:column;overflow:hidden;background:" + bg,
+      blobStyle: "position:absolute;width:136px;height:136px;border-radius:999px;background:rgba(255,255,255,.42);right:-34px;bottom:-52px",
+      blob2Style: "position:absolute;width:56px;height:56px;border-radius:999px;background:rgba(32,30,29,.09);right:74px;top:-18px",
+      miniPosterStyle: "position:relative;width:58px;height:76px;flex:none;border-radius:18px;overflow:hidden;display:grid;place-items:center;background:" + bg,
+      miniBlobStyle: "position:absolute;width:58px;height:58px;border-radius:999px;background:rgba(255,255,255,.4);right:-20px;bottom:-24px",
+      saveGlyph: on ? "★" : "☆",
+      saveStyle: "position:absolute;top:14px;right:14px;width:34px;height:34px;border:0;border-radius:999px;cursor:pointer;font-size:15px;line-height:1;display:grid;place-items:center;transition:transform .15s;background:" + (on ? "var(--color-accent)" : "var(--color-bg)") + ";color:var(--color-text)",
+      miniSaveStyle: "width:26px;height:26px;flex:none;border:0;border-radius:999px;cursor:pointer;font-size:12px;line-height:1;background:" + (on ? "var(--color-accent)" : "var(--color-bg)") + ";color:" + (on ? "var(--color-bg)" : "var(--color-text)"),
+      toggleSave: () => this.setState(s => ({ saved: Object.assign({}, s.saved, { [key]: !s.saved[key] }) }))
+    };
+  }
+
+  preview(s, picked) {
+    const on = s.key === picked.key;
+    return {
+      id: s.id, href: "#" + s.id, name: s.name, note: s.note,
+      badgeStyle: "font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;border-radius:5px;text-decoration:none;background:" + (on ? "#c67139" : "rgba(32,30,29,.1)") + ";color:" + (on ? "#fff" : "#201e1d"),
+      vars: vars(s.v) + ";width:330px;padding:18px;border-radius:32px;display:flex;flex-direction:column;gap:14px;font-family:var(--font-body);box-shadow:var(--shadow-md)",
+      swatches: [s.v.bg, s.v.surface, s.v.accent, s.v.accent2, s.v.text].map(c =>
+        ({ dotStyle: "width:26px;height:26px;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(32,30,29,.18);background:" + c })),
+      pills: ["History", "Nature", "Sports"].map((p, i) => ({
+        label: p,
+        style: "padding:6px 12px;border-radius:999px;font:600 11px var(--font-body);border:1px solid " + (i === 0 ? "transparent" : "var(--color-divider)") + ";background:" + (i === 0 ? "var(--color-accent)" : "transparent") + ";color:" + (i === 0 ? "var(--color-bg)" : "var(--color-text)")
+      }))
+    };
+  }
+
+  renderVals() {
+    const { cat, filter, q } = this.state;
+    const cats = DATA
+      .filter(c => cat === "All" || c.name === cat)
+      .map((c, ci) => {
+        const titles = c.titles.filter(d => this.matches(d));
+        return {
+          name: c.name, titles: titles.map(d => this.card(d, ci)),
+          countLabel: titles.length + (titles.length === 1 ? " title" : " titles"),
+          dotStyle: "width:11px;height:11px;border-radius:999px;flex:none;background:color-mix(in srgb," + c.dot + " 55%, var(--color-accent))"
+        };
+      })
+      .filter(c => c.titles.length);
+
+    const navItems = [{ name: "All categories", dot: "var(--color-text)", count: 27 }]
+      .concat(DATA.map(c => ({ name: c.name, dot: c.dot, count: c.titles.length })))
+      .map(n => {
+        const key = n.name === "All categories" ? "All" : n.name;
+        const active = cat === key;
+        return {
+          name: n.name, count: n.count,
+          select: () => this.setState({ cat: key }),
+          style: "display:flex;align-items:center;gap:10px;width:100%;padding:9px 11px;border:0;border-radius:999px;cursor:pointer;font:600 13px var(--font-body);text-align:left;background:" + (active ? "var(--color-accent)" : "transparent") + ";color:" + (active ? "var(--color-bg)" : "var(--color-text)"),
+          dotStyle: "width:9px;height:9px;border-radius:999px;flex:none;background:" + (active ? "var(--color-bg)" : "color-mix(in srgb," + n.dot + " 55%, var(--color-accent))"),
+          chipStyle: "flex:none;padding:8px 14px;border-radius:999px;border:1px solid " + (active ? "var(--color-accent)" : "var(--color-divider)") + ";cursor:pointer;font:600 12.5px var(--font-body);white-space:nowrap;background:" + (active ? "var(--color-accent)" : "var(--color-surface)") + ";color:" + (active ? "var(--color-bg)" : "var(--color-text)")
+        };
+      });
+
+    const savedCount = Object.values(this.state.saved).filter(Boolean).length;
+
+    const picked = SCHEMES.find(s => s.key === (this.props.palette ?? "Midnight")) || SCHEMES[0];
+
+    return {
+      cats, navItems, q,
+      paletteVars: vars(picked.v),
+      pickedName: picked.name,
+      schemes: SCHEMES.filter(s => !s.g).map(s => this.preview(s, picked)),
+      schemes3: SCHEMES.filter(s => s.g === 3).map(s => this.preview(s, picked)),
+      empty: cats.length === 0,
+      savedLine: savedCount ? savedCount + (savedCount === 1 ? " title saved — tap a star to add more." : " titles saved across 4 services.") : "Star anything to keep it here. Nothing saved yet.",
+      onSearch: e => this.setState({ q: e.target.value }),
+      allProviders: Object.keys(P).map(n => ({ name: n, url: P[n][0] })),
+      filters: FILTERS.map(f => ({
+        label: f,
+        select: () => this.setState({ filter: f }),
+        style: "padding:9px 15px;border-radius:999px;cursor:pointer;font:600 12.5px var(--font-body);border:1px solid " + (filter === f ? "var(--color-accent)" : "var(--color-divider)") + ";background:" + (filter === f ? "var(--color-accent)" : "transparent") + ";color:" + (filter === f ? "var(--color-bg)" : "var(--color-text)")
+      }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>
