@@ -2,9 +2,22 @@ import ProviderChip from './ProviderChip.jsx';
 import { initials } from '../data.js';
 import { posterVar } from './TitleCard.jsx';
 
-export default function TitleRow({ title, categoryIndex, saved, onToggleSave }) {
+export default function TitleRow({ title, categoryIndex, saved, onToggleSave, onOpenDetail }) {
+  const openDetail = () => onOpenDetail(categoryIndex, title);
   return (
-    <article className="row-card">
+    <article
+      className="row-card"
+      role="button"
+      tabIndex={0}
+      onClick={openDetail}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openDetail();
+        }
+      }}
+      aria-label={`Open details for ${title.title}`}
+    >
       <div className="row-poster" style={{ background: posterVar(categoryIndex, title.year) }}>
         <div className="row-blob" />
         <span className="row-initials">{initials(title.title)}</span>
@@ -15,7 +28,10 @@ export default function TitleRow({ title, categoryIndex, saved, onToggleSave }) 
           <button
             type="button"
             className={'row-save' + (saved ? ' is-saved' : '')}
-            onClick={onToggleSave}
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleSave();
+            }}
             aria-label={saved ? `Remove ${title.title} from My list` : `Save ${title.title} to My list`}
             aria-pressed={saved}
           >
@@ -25,7 +41,7 @@ export default function TitleRow({ title, categoryIndex, saved, onToggleSave }) 
         <div className="row-meta">
           {title.year} · {title.runtime}
         </div>
-        <div className="row-providers">
+        <div className="row-providers" onClick={(e) => e.stopPropagation()}>
           {title.providers.map((p) => (
             <ProviderChip key={p} name={p} variant="row" />
           ))}

@@ -6,16 +6,22 @@ import Hero from './components/Hero.jsx';
 import EmptyState from './components/EmptyState.jsx';
 import TitleCard from './components/TitleCard.jsx';
 import TitleRow from './components/TitleRow.jsx';
+import DetailOverlay from './components/DetailOverlay.jsx';
 
 export default function App() {
   const [category, setCategory] = useState('All');
   const [filter, setFilter] = useState('All');
   const [query, setQuery] = useState('');
   const [saved, setSaved] = useState({});
+  const [collapsed, setCollapsed] = useState(false);
+  const [detail, setDetail] = useState(null); // { categoryIndex, title }
 
   const toggleSave = (title) => {
     setSaved((s) => ({ ...s, [title]: !s[title] }));
   };
+
+  const openDetail = (categoryIndex, title) => setDetail({ categoryIndex, title });
+  const closeDetail = () => setDetail(null);
 
   const navItems = useMemo(
     () => [
@@ -41,9 +47,20 @@ export default function App() {
 
   const isEmpty = visibleCategories.length === 0;
 
+  const detailRelated = detail
+    ? CATEGORIES[detail.categoryIndex].titles.filter((t) => t.title !== detail.title.title)
+    : [];
+
   return (
     <div className="app">
-      <Sidebar navItems={navItems} activeCategory={category} onSelectCategory={setCategory} savedLine={savedLine} />
+      <Sidebar
+        navItems={navItems}
+        activeCategory={category}
+        onSelectCategory={setCategory}
+        savedLine={savedLine}
+        collapsed={collapsed}
+        onToggleCollapsed={() => setCollapsed((c) => !c)}
+      />
 
       <main className="desktop-shell">
         <div className="topbar">
@@ -98,6 +115,7 @@ export default function App() {
                     categoryIndex={c.categoryIndex}
                     saved={!!saved[t.title]}
                     onToggleSave={() => toggleSave(t.title)}
+                    onOpenDetail={openDetail}
                   />
                 ))}
               </div>
@@ -138,6 +156,7 @@ export default function App() {
                     categoryIndex={c.categoryIndex}
                     saved={!!saved[t.title]}
                     onToggleSave={() => toggleSave(t.title)}
+                    onOpenDetail={openDetail}
                   />
                 ))}
               </div>
@@ -147,6 +166,19 @@ export default function App() {
           {isEmpty && <EmptyState />}
         </div>
       </div>
+
+      {detail && (
+        <DetailOverlay
+          categoryName={CATEGORIES[detail.categoryIndex].name}
+          categoryIndex={detail.categoryIndex}
+          title={detail.title}
+          related={detailRelated}
+          saved={!!saved[detail.title.title]}
+          onToggleSave={() => toggleSave(detail.title.title)}
+          onClose={closeDetail}
+          onSelectRelated={(t) => setDetail({ categoryIndex: detail.categoryIndex, title: t })}
+        />
+      )}
     </div>
   );
 }
