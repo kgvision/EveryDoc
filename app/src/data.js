@@ -2,7 +2,7 @@
 // service's dot (blended with the page's accent color, see styles.css).
 export const PROVIDERS = {
   'Netflix': { url: 'https://www.netflix.com/login', hex: '#c0533a' },
-  'Hulu': { url: 'https://www.hulu.com/login', hex: '#7a8a5e' },
+  'Hulu': { url: 'https://www.hulu.com/', hex: '#7a8a5e' },
   'Disney+': { url: 'https://www.disneyplus.com/login', hex: '#56633f' },
   'Max': { url: 'https://www.max.com/login', hex: '#8c491a' },
   'Prime Video': { url: 'https://www.primevideo.com/ap/signin', hex: '#728157' },
