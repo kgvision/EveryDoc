@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import ProviderChip from './ProviderChip.jsx';
 import { posterVar } from './TitleCard.jsx';
-import { initials } from '../data.js';
+import { initials, posterImage } from '../data.js';
 
 export default function DetailOverlay({ categoryName, categoryIndex, title, related, saved, onToggleSave, onClose, onSelectRelated }) {
+  const photo = posterImage(title.title);
   useEffect(() => {
     const onKey = (e) => {
       if (e.key === 'Escape') onClose();
@@ -20,9 +21,16 @@ export default function DetailOverlay({ categoryName, categoryIndex, title, rela
   return (
     <div className="detail-backdrop" onClick={onClose}>
       <div className="detail-panel" onClick={(e) => e.stopPropagation()} role="dialog" aria-modal="true" aria-label={title.title}>
-        <div className="detail-hero" style={{ background: posterVar(categoryIndex, title.year) }}>
-          <div className="detail-blob" />
-          <div className="detail-blob2" />
+        <div className="detail-hero" style={{ background: photo ? 'var(--color-surface)' : posterVar(categoryIndex, title.year) }}>
+          {photo ? (
+            <img className="detail-hero-photo" src={photo} alt="" loading="lazy" />
+          ) : (
+            <>
+              <div className="detail-blob" />
+              <div className="detail-blob2" />
+            </>
+          )}
+          <div className="detail-scrim" />
           <button type="button" className="detail-close" onClick={onClose} aria-label="Close">
             ✕
           </button>
@@ -62,17 +70,24 @@ export default function DetailOverlay({ categoryName, categoryIndex, title, rela
             <div>
               <div className="watch-label">More in {categoryName}</div>
               <div className="related-scroll">
-                {related.map((t) => (
-                  <button type="button" key={t.title} className="related-tile" onClick={() => onSelectRelated(t)}>
-                    <div className="related-poster" style={{ background: posterVar(categoryIndex, t.year) }}>
-                      <span className="related-initials">{initials(t.title)}</span>
-                    </div>
-                    <div className="related-title">{t.title}</div>
-                    <div className="related-meta">
-                      {t.year} · {t.runtime}
-                    </div>
-                  </button>
-                ))}
+                {related.map((t) => {
+                  const relatedPhoto = posterImage(t.title);
+                  return (
+                    <button type="button" key={t.title} className="related-tile" onClick={() => onSelectRelated(t)}>
+                      <div className="related-poster" style={{ background: relatedPhoto ? 'var(--color-surface)' : posterVar(categoryIndex, t.year) }}>
+                        {relatedPhoto ? (
+                          <img className="related-poster-photo" src={relatedPhoto} alt="" loading="lazy" />
+                        ) : (
+                          <span className="related-initials">{initials(t.title)}</span>
+                        )}
+                      </div>
+                      <div className="related-title">{t.title}</div>
+                      <div className="related-meta">
+                        {t.year} · {t.runtime}
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           )}

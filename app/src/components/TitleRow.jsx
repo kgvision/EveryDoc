@@ -1,9 +1,10 @@
 import ProviderChip from './ProviderChip.jsx';
-import { initials } from '../data.js';
+import { initials, posterImage } from '../data.js';
 import { posterVar } from './TitleCard.jsx';
 
 export default function TitleRow({ title, categoryIndex, saved, onToggleSave, onOpenDetail }) {
   const openDetail = () => onOpenDetail(categoryIndex, title);
+  const photo = posterImage(title.title);
   return (
     <article
       className="row-card"
@@ -18,9 +19,15 @@ export default function TitleRow({ title, categoryIndex, saved, onToggleSave, on
       }}
       aria-label={`Open details for ${title.title}`}
     >
-      <div className="row-poster" style={{ background: posterVar(categoryIndex, title.year) }}>
-        <div className="row-blob" />
-        <span className="row-initials">{initials(title.title)}</span>
+      <div className="row-poster" style={{ background: photo ? 'var(--color-surface)' : posterVar(categoryIndex, title.year) }}>
+        {photo ? (
+          <img className="row-poster-photo" src={photo} alt="" loading="lazy" />
+        ) : (
+          <>
+            <div className="row-blob" />
+            <span className="row-initials">{initials(title.title)}</span>
+          </>
+        )}
       </div>
       <div className="row-content">
         <div className="row-title-line">

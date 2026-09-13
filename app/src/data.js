@@ -1,3 +1,5 @@
+import posters from './posters.json';
+
 // Providers — the brand hex used to tint each service's dot (blended with
 // the page's accent color, see styles.css), plus two link builders:
 //   home   — a generic entry point, used where there's no specific title
@@ -118,6 +120,16 @@ export const CATEGORIES = [
 export const TOTAL_TITLES = CATEGORIES.reduce((n, c) => n + c.titles.length, 0);
 
 export const FILTERS = ['All', 'Free with ads', 'Series', 'Under 100m'];
+
+// Real poster art, looked up from TMDb — see scripts/fetch-posters.js.
+// Falls back to null (the typographic placeholder) until populated.
+export function posterImage(title) {
+  return posters[title] || null;
+}
+
+export function hasPosterImages() {
+  return Object.values(posters).some(Boolean);
+}
 
 export function matchesFilter(title, filter, query) {
   const q = query.trim().toLowerCase();

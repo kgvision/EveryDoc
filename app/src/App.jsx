@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { CATEGORIES, FILTERS, TOTAL_TITLES, matchesFilter } from './data.js';
+import { CATEGORIES, FILTERS, TOTAL_TITLES, matchesFilter, hasPosterImages } from './data.js';
 import Sidebar from './components/Sidebar.jsx';
 import MobileHeader from './components/MobileHeader.jsx';
 import Hero from './components/Hero.jsx';
@@ -123,6 +123,16 @@ export default function App() {
           ))}
 
           {isEmpty && <EmptyState />}
+
+          {hasPosterImages() && (
+            <p className="attribution">
+              Poster images via{' '}
+              <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">
+                TMDb
+              </a>
+              . This product uses the TMDb API but is not endorsed or certified by TMDb.
+            </p>
+          )}
         </div>
       </main>
 
@@ -164,6 +174,16 @@ export default function App() {
           ))}
 
           {isEmpty && <EmptyState />}
+
+          {hasPosterImages() && (
+            <p className="attribution">
+              Poster images via{' '}
+              <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">
+                TMDb
+              </a>
+              . This product uses the TMDb API but is not endorsed or certified by TMDb.
+            </p>
+          )}
         </div>
       </div>
 

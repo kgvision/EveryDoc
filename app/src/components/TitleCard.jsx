@@ -1,4 +1,5 @@
 import ProviderChip from './ProviderChip.jsx';
+import { posterImage } from '../data.js';
 
 export function posterVar(categoryIndex, year) {
   return `var(--poster-${((categoryIndex + year) % 4) + 1})`;
@@ -6,6 +7,7 @@ export function posterVar(categoryIndex, year) {
 
 export default function TitleCard({ title, categoryIndex, saved, onToggleSave, onOpenDetail }) {
   const openDetail = () => onOpenDetail(categoryIndex, title);
+  const photo = posterImage(title.title);
   return (
     <article
       className="card"
@@ -20,9 +22,15 @@ export default function TitleCard({ title, categoryIndex, saved, onToggleSave, o
       }}
       aria-label={`Open details for ${title.title}`}
     >
-      <div className="card-poster" style={{ background: posterVar(categoryIndex, title.year) }}>
-        <div className="card-blob" />
-        <div className="card-blob2" />
+      <div className="card-poster" style={{ background: photo ? 'var(--color-surface)' : posterVar(categoryIndex, title.year) }}>
+        {photo ? (
+          <img className="card-poster-photo" src={photo} alt="" loading="lazy" />
+        ) : (
+          <>
+            <div className="card-blob" />
+            <div className="card-blob2" />
+          </>
+        )}
         <div className="card-scrim" />
         {title.free && <span className="free-badge on-poster">Free with ads</span>}
         <button
