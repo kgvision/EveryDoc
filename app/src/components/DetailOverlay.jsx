@@ -53,7 +53,7 @@ export default function DetailOverlay({ categoryName, categoryIndex, title, rela
             <div className="watch-label">Watch on</div>
             <div className="watch-list watch-list-detail">
               {title.providers.map((p) => (
-                <ProviderChip key={p} name={p} variant="card" />
+                <ProviderChip key={p} name={p} variant="card" title={title.title} />
               ))}
             </div>
           </div>

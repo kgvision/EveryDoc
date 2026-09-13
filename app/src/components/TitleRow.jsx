@@ -43,7 +43,7 @@ export default function TitleRow({ title, categoryIndex, saved, onToggleSave, on
         </div>
         <div className="row-providers" onClick={(e) => e.stopPropagation()}>
           {title.providers.map((p) => (
-            <ProviderChip key={p} name={p} variant="row" />
+            <ProviderChip key={p} name={p} variant="row" title={title.title} />
           ))}
           {title.free && <span className="row-free-badge">FREE</span>}
         </div>

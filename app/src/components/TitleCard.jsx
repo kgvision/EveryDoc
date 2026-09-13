@@ -45,7 +45,7 @@ export default function TitleCard({ title, categoryIndex, saved, onToggleSave, o
         </div>
         <div className="watch-list" onClick={(e) => e.stopPropagation()}>
           {title.providers.map((p) => (
-            <ProviderChip key={p} name={p} variant="card" />
+            <ProviderChip key={p} name={p} variant="card" title={title.title} />
           ))}
         </div>
       </div>

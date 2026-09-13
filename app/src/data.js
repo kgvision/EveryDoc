@@ -1,16 +1,67 @@
-// Providers — real sign-in URLs, plus the brand hex used to tint each
-// service's dot (blended with the page's accent color, see styles.css).
+// Providers — the brand hex used to tint each service's dot (blended with
+// the page's accent color, see styles.css), plus two link builders:
+//   home   — a generic entry point, used where there's no specific title
+//            in context (the hero's "browse all services" row).
+//   search — a per-title deep link. None of these services expose a public
+//            "open this exact title" URL (that needs an internal catalog
+//            id we don't have), so this lands on that service's search
+//            results for the title instead — signed in, that's one click
+//            from the title itself rather than its homepage.
+function q(title) {
+  return encodeURIComponent(title);
+}
+
 export const PROVIDERS = {
-  'Netflix': { url: 'https://www.netflix.com/login', hex: '#c0533a' },
-  'Hulu': { url: 'https://www.hulu.com/', hex: '#7a8a5e' },
-  'Disney+': { url: 'https://www.disneyplus.com/login', hex: '#56633f' },
-  'Max': { url: 'https://www.max.com/login', hex: '#8c491a' },
-  'Prime Video': { url: 'https://www.primevideo.com/ap/signin', hex: '#728157' },
-  'Apple TV+': { url: 'https://tv.apple.com/login', hex: '#645c50' },
-  'Peacock': { url: 'https://www.peacocktv.com/signin', hex: '#b2622d' },
-  'Paramount+': { url: 'https://www.paramountplus.com/account/signin/', hex: '#8fa073' },
-  'PBS': { url: 'https://account.pbs.org/accounts/login', hex: '#474238' },
-  'YouTube': { url: 'https://accounts.google.com/ServiceLogin?service=youtube', hex: '#d67f48' },
+  'Netflix': {
+    hex: '#c0533a',
+    home: 'https://www.netflix.com/login',
+    search: (t) => `https://www.netflix.com/search?q=${q(t)}`,
+  },
+  'Hulu': {
+    hex: '#7a8a5e',
+    home: 'https://www.hulu.com/',
+    search: (t) => `https://www.hulu.com/search?q=${q(t)}`,
+  },
+  'Disney+': {
+    hex: '#56633f',
+    home: 'https://www.disneyplus.com/login',
+    search: (t) => `https://www.disneyplus.com/search?q=${q(t)}`,
+  },
+  'Max': {
+    hex: '#8c491a',
+    home: 'https://www.max.com/login',
+    search: (t) => `https://www.max.com/search?q=${q(t)}`,
+  },
+  'Prime Video': {
+    hex: '#728157',
+    home: 'https://www.primevideo.com/ap/signin',
+    search: (t) => `https://www.primevideo.com/search?phrase=${q(t)}`,
+  },
+  'Apple TV+': {
+    hex: '#645c50',
+    home: 'https://tv.apple.com/login',
+    search: (t) => `https://tv.apple.com/search?term=${q(t)}`,
+  },
+  'Peacock': {
+    hex: '#b2622d',
+    home: 'https://www.peacocktv.com/signin',
+    search: (t) => `https://www.peacocktv.com/search?q=${q(t)}`,
+  },
+  'Paramount+': {
+    hex: '#8fa073',
+    home: 'https://www.paramountplus.com/account/signin/',
+    search: (t) => `https://www.paramountplus.com/search?q=${q(t)}`,
+  },
+  'PBS': {
+    hex: '#474238',
+    home: 'https://account.pbs.org/accounts/login',
+    search: (t) => `https://www.pbs.org/search/?q=${q(t)}`,
+  },
+  'YouTube': {
+    hex: '#d67f48',
+    home: 'https://accounts.google.com/ServiceLogin?service=youtube',
+    search: (t) => `https://www.youtube.com/results?search_query=${q(t)}`,
+  },
 };
 
 // Category dot colors — each is a step from the (fixed) design-system ramps,
